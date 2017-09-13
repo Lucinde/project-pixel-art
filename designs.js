@@ -1,22 +1,26 @@
+// define constants
+const height = $("#input_height");
+const width = $("#input_width");
 
 // define submit button action
-$("#submit").click(makeGrid);
+$("#sizePicker").submit(function(event){
+  event.preventDefault();
+  makeGrid();
+});
 
 // When size is submitted by the user, call makeGrid()
 function makeGrid() {
   // select sizes
-  var height = $("#input_height").val();
-  var width = $("#input_width").val();
+  let h = height.val();
+  let w = width.val();
 
   // draw table
-  var i;
-  var j;
-  var tr = "";
+  let tr = "";
   //create row
-  for (i = 0; i < height; i++) {
+  for (i = 0; i < h; i++) {
     tr += "<tr>";
     //create column
-    for (j = 0; j < width; j++) {
+    for (j = 0; j < w; j++) {
       tr += "<td>&nbsp;</td>";
     }
     tr += "</tr>";
@@ -27,8 +31,8 @@ function makeGrid() {
 }
 
 function colorPixel() {
-  // get current value colorpicker 
-  var color = $("#colorPicker").val();
+  // get current value colorpicker
+  let color = $("#colorPicker").val();
   // set background value on clicked td
   this.style.background = color;
 }
