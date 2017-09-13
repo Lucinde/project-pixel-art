@@ -1,4 +1,3 @@
-// Select color input
 
 // define submit button action
 $("#submit").click(makeGrid);
@@ -23,9 +22,13 @@ function makeGrid() {
     tr += "</tr>";
   }
   $("#pixel_canvas").html(tr);
+  // connect function to all td elements
   $("td").click(colorPixel);
 }
 
 function colorPixel() {
-  alert("color");
+  // get current value colorpicker 
+  var color = $("#colorPicker").val();
+  // set background value on clicked td
+  this.style.background = color;
 }
